@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    about page
+{% endblock %}
+{% block content %}
+    <div class="container my-5">
+        <p class="fs-1 text-center">Добавление товара</p>
+        <p class="fs-6 text-center">Quickly build an effective pricing table for your ponetioal customers with the
+            Bootstrap examole. It's build with default Bootstrap components and utilities with little customization.</p>
+        <div class="col-4">
+            <form method="post">
+                <p><input type="text" class="form-control" name="title" id="title" placeholder="Введите название"></p>
+                <p><input type="number" class="form-control" name="price" id="price" placeholder="Введите цену"></p>
+                <button type="submit" class="btn btn-success">Добавить товар</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

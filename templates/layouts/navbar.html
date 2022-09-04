@@ -1,0 +1,37 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-light border-bottom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Company name</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link text-nowrap" aria-current="page" href="/">Главная</a>
+                <a class="nav-link text-nowrap" href="/about">Про магазин</a>
+                {% if current_user.is_authenticated %}
+                    <a class="nav-link text-nowrap" href="/create">Добавить товар</a>{% endif %}
+                {% if not current_user.is_authenticated %}
+                    <a href="/login" class="btn btn-outline-primary text-nowrap me-3">Войти</a>{% endif %}
+                {% if current_user.is_authenticated %}
+                    <div class="dropdown">
+                        <a class="nav-link text-nowrap dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false"
+                           aria-current="page">{{ current_user.name }}</a>
+                        <ul class="dropdown-menu m-2">
+                            <li><a class="dropdown-item" href="/profile">Профиль</a></li>
+                            <li><a class="dropdown-item" href="/profile/passchange">Изменить пароль</a></li>
+                        </ul>
+                    </div>
+
+
+                    <a class="btn btn-outline-primary text-nowrap me-3"
+                       href="{{ url_for('logout') }}">Выйти</a> {% endif %}
+            </div>
+        </div>
+</div>
+</nav>
+</div>
